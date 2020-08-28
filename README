@@ -20,7 +20,7 @@ for filename in *bam; do bam-readcount -w 1 -b 20 -l panSNPs_intervals.txt -f /p
 # format of the table is explained below
 ./makeVCtable.py panSNPs.txt /path/to/dir/with/bam-readcount/files
 
-# generate variant call table (tab-limited) with monomorphic sites excluded (those are outputted in separate text file)
+# optionally, generate variant call table (tab-limited) with monomorphic sites excluded (those are outputted in separate text file)
 # site is considered as monomorphic if all investigated isolates possess the same base at given position that differs from the reference
 ./makeVCtableNoMonomorphic.py VC_table.dat
 

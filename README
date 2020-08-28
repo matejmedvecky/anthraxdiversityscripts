@@ -11,7 +11,7 @@ for filename in *bam; do samtools mpileup -f /path/to/reference.fasta $filename 
 ./extractAllSNPs.py /path/to/dir/with/varscan/files
 
 # generate SNP interval file to reduce output of bam-readcount tool
-awk '{printf "%s\t%s\t%s\n", $1, $2, $2}’ panSNPs.txt > panSNPs_intervals.txt
+awk '{printf "%s\t%s\t%s\n", $1, $2, $2}' panSNPs.txt > panSNPs_intervals.txt
 
 # generate read mapping metrics files for SNP sites via bam-readcount
 for filename in *bam; do bam-readcount -w 1 -b 20 -l panSNPs_intervals.txt -f /path/to/reference.fasta $filename > ${filename%bam}bam-readcount; done

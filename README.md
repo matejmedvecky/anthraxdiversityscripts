@@ -7,7 +7,7 @@ README file provides example of how this set of scripts was used in our Anthrax 
 Please cite the paper and/or URL to this GitHub repo when using them in your work
 
 
-\# generate SNPs via varscan from BAM files
+\# generate SNPs via varscan from BAM files\
 \# change /path/to/ to real path to given files/executables in your file system
 ```bash
 for filename in *bam; do samtools mpileup -f /path/to/reference.fasta $filename | java -jar /path/to/VarScan.v2.4.4.jar pileup2snp --min-coverage 4 --min-reads2 2 --min-var-freq 0.95 --min-avg-qual 20 > ${filename%bam}varscan; done
@@ -28,28 +28,28 @@ awk '{printf "%s\t%s\t%s\n", $1, $2, $2}' panSNPs.txt > panSNPs_intervals.txt
 for filename in *bam; do bam-readcount -w 1 -b 20 -l panSNPs_intervals.txt -f /path/to/reference.fasta $filename > ${filename%bam}bam-readcount; done
 ```
 
-\# generate variant call table (tab-limited)
+\# generate variant call table (tab-limited)\
 \# format of the table is explained below
 ```bash
 ./makeVCtable.py panSNPs.txt /path/to/dir/with/bam-readcount/files
 ```
 
-\# optionally, generate variant call table (tab-limited) with monomorphic sites excluded (those are outputted in separate text file)
+\# optionally, generate variant call table (tab-limited) with monomorphic sites excluded (those are outputted in separate text file)\
 \# site is considered as monomorphic if all investigated isolates possess the same base at given position that differs from the reference
 ```bash
 ./makeVCtableNoMonomorphic.py VC_table.dat
 ```
 
-\# generate variant call flag table
+\# generate variant call flag table\
 \# user must specify coverage threshold and base frequency threshold - flags are risen in sites that are below specified thresholds
 ```bash
 ./makeVCflagTable.py VC_table.dat 4 0.89
 ```
 
-\# at this stage, user can refine the dataset by removing sites or samples with too many flags
+\# at this stage, user can refine the dataset by removing sites or samples with too many flags\
 \# we also removed sites from phages and homologous regions
 
-\# generate alignment table (tab-limited)
+\# generate alignment table (tab-limited)\
 \# user must specify coverage threshold and base frequency threshold - sites below coverage threshold are represented as ‘-‘ and sites below frequency threshold are represented as ’N’ in the alignment table
 ```bash
 ./generateAlignmentTable.py VC_table_refined.dat 4 0.89

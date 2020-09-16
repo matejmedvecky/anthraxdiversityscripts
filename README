@@ -5,7 +5,7 @@
 
 # generate SNPs via varscan from BAM files
 # change /path/to/ to real path to given files/executables in your file system
-```
+```bash
 for filename in *bam; do samtools mpileup -f /path/to/reference.fasta $filename | java -jar /path/to/VarScan.v2.4.4.jar pileup2snp --min-coverage 4 --min-reads2 2 --min-var-freq 0.95 --min-avg-qual 20 > ${filename%bam}varscan; done
 ```
 

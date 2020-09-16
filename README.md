@@ -1,5 +1,9 @@
+# README
+
 This Repo consists of scripts and workflow for the assessment of SNP read mapping metrics data (generated via varscan and bam-readcount tools), variant site filtering and generation of variant call and MSA alignment files
+
 README file provides example of how this set of scripts was used in our Anthrax genomic diversity paper
+
 Please cite the paper and/or URL to this GitHub repo when using them in your work
 
 
@@ -62,9 +66,11 @@ awk '{printf (">%s\n",$1); for (i=2; i<=NF; i++) printf ("%s",$i); printf ("\n")
 
 
 \# explatanion of variant call table
+```
 chromosome	position	ref allele	AN16-110_S	AN16-24_S2
 NC_007530_Bacillus_anthracis_Ames_Ancestor	17294	T	C:316(160,156):2(1,1)/314(159,155)/0(0,0)/0(0,0)/0(0,0)/0	C:83(42,41):0(0,0)/83(42,41)/0(0,0)/0(0,0)/0(0,0)/0
 NC_007530_Bacillus_anthracis_Ames_Ancestor	359536	G	A:101(50,51):101(50,51)/0(0,0)/0(0,0)/0(0,0)/0(0,0)/0	A:27(13,14):27(13,14)/0(0,0)/0(0,0)/0(0,0)/0(0,0)/0
+```
 
 \# each line consist of reference chromosome, position of SNP, reference allele and read metrics for each sample
 \# read metrics has following format: prevalent base: total number of mapped reads(forward,reverse): number of reads with A(forward,reverse)/number of reads with C(forward,reverse)/number of reads with G(forward,reverse)/number of reads with T(forward,reverse)/number of reads with N(forward,reverse)/number of indel reads

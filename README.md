@@ -75,4 +75,4 @@ NC_007530_Bacillus_anthracis_Ames_Ancestor	359536	G	A:101(50,51):101(50,51)/0(0,
 \# each line consist of reference chromosome, position of SNP, reference allele and read metrics for each sample\
 \# read metrics has following format: prevalent base: total number of mapped reads(forward,reverse): number of reads with A(forward,reverse)/number of reads with C(forward,reverse)/number of reads with G(forward,reverse)/number of reads with T(forward,reverse)/number of reads with N(forward,reverse)/number of indel reads\
 \# if more than 50% of mapped reads have indel at given site, there is keyword INDEL as prevalent base\
-\# if there are two prevalent bases with the same coverage, there is keyword AMBIGUOUS as prevalent base\
+\# if there are two prevalent bases with the same coverage, there is keyword AMBIGUOUS as prevalent base

@@ -74,7 +74,7 @@ def make_variant_calling_table():
             outFile.write("%s\t%d\t%s" % (snp[1], int(snp[0]), snp[2]))
             for sampleSnp in snp[3]:
                 if int(sampleSnp[0]) > 0:
-                    if ((int(sampleSnp[1])+int(sampleSnp[4])+int(sampleSnp[7])+int(sampleSnp[10])+int(sampleSnp[13]))/int(sampleSnp[0])) < 0.5:
+                    if ((int(sampleSnp[1])+int(sampleSnp[4])+int(sampleSnp[7])+int(sampleSnp[10])+int(sampleSnp[13]))/float(sampleSnp[0])) < 0.5:
                         outFile.write("\tINDEL:")#write INDEL if more than 50% of mapped reads have indel at given site
                     elif int(sampleSnp[1]) > int(sampleSnp[4]) and int(sampleSnp[1]) > int(sampleSnp[7]) and int(sampleSnp[1]) > int(sampleSnp[10]) and int(sampleSnp[1]) > int(sampleSnp[13]):
                         outFile.write("\tA:")

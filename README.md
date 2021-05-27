@@ -28,13 +28,13 @@ awk '{printf "%s\t%s\t%s\n", $1, $2, $2}' panSNPs.txt > panSNPs_intervals.txt
 for filename in *bam; do bam-readcount -w 1 -b 20 -l panSNPs_intervals.txt -f /path/to/reference.fasta $filename > ${filename%bam}bam-readcount; done
 ```
 
-\# generate variant call table (tab-limited)\
+\# generate variant call table (tab-delimited)\
 \# format of the table is explained below
 ```bash
 ./makeVCtable.py panSNPs.txt /path/to/dir/with/bam-readcount/files
 ```
 
-\# optionally, generate variant call table (tab-limited) with monomorphic sites excluded (those are outputted in separate text file)\
+\# optionally, generate variant call table (tab-delimited) with monomorphic sites excluded (those are outputted in separate text file)\
 \# site is considered as monomorphic if all investigated isolates possess the same base at given position that differs from the reference
 ```bash
 ./makeVCtableNoMonomorphic.py VC_table.dat
@@ -53,8 +53,17 @@ for filename in *bam; do bam-readcount -w 1 -b 20 -l panSNPs_intervals.txt -f /p
 awk -F 'below' '{if (NF-1 < 2) {print $0}}' VC_flag_table.dat > VC_flag_table_refined.dat
 awk -F 'below' '{if (NF-1 >= 2) {print $0}}' VC_flag_table.dat > VC_flag_table_problematic_sites.dat
 ```
+\# user can use script removeSelectedRegions.py for automatic removal of sites with too many flags\
+\# first, generate file with problematic intervals (tab-delimited file with starting and ending positions), e.g.:
+```bash
+awk '{printf "%s\t%s\n",$2,$2}' VC_flag_table_problematic_sites.dat > VC_flag_table_problematic_sites_intervals.txt
+```
+\# execute script afterwards
+```bash
+./removeSelectedRegions.py VC_table.dat VC_flag_table_problematic_sites_intervals.txt 
+```
 
-\# generate alignment table (tab-limited)\
+\# generate alignment table (tab-delimited)\
 \# user must specify coverage threshold and base frequency threshold - sites below coverage threshold are represented as ‘-‘ and sites below frequency threshold are represented as ’N’ in the alignment table
 ```bash
 ./generateAlignmentTable.py VC_table_refined.dat 4 0.89

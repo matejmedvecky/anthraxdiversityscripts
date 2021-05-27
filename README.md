@@ -47,7 +47,7 @@ for filename in *bam; do bam-readcount -w 1 -b 20 -l panSNPs_intervals.txt -f /p
 ```
 
 \# at this stage, user can refine the dataset by removing sites or samples with too many flags\
-\# we also removed sites from phages and homologous regions
+\# we also removed sites from phages and homologous regions\
 \# e.g. awk command to filter out all sites with 2 and more flags:
 ```bash
 awk -F 'below' '{if (NF-1 < 2) {print $0}}' VC_flag_table.dat > VC_flag_table_refined.dat

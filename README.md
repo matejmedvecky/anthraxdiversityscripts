@@ -2,7 +2,7 @@
 
 This Repo consists of scripts and workflow for the assessment of SNP read mapping metrics data (generated via varscan and bam-readcount tools), variant site filtering and generation of variant call and MSA alignment files
 
-README file provides example of how this set of scripts was used in our Anthrax genomic diversity paper
+README file provides example of how this set of scripts was used in our *Bacillus anthracis* genomic diversity paper
 
 Please cite the paper and/or URL to this GitHub repo when using them in your work
 

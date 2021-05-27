@@ -2,7 +2,7 @@
 
 #created by Matej Medvecky
 
-#each line in snp_file.txt must consist of following three tab-limited info: chromosome position referece_allele
+#each line in snp_file.txt must consist of following three tab-delimited info: chromosome position referece_allele
 #bam-readcount files must have 'bam-readcount' suffix and must be derived from the same reference genome as snp_file!
 
 import sys

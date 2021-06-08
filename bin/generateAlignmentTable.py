@@ -67,6 +67,8 @@ def make_align_table():
                             outFile.write("N")
                         else:
                             outFile.write("T")
+                    elif str(snpData[0][0]) == "INDEL":
+                        outFile.write("-")
                     elif str(snpData[0][0]) == "AMBIGUOUS":
                         outFile.write("N")
                 else:

@@ -8,7 +8,7 @@ from Bio import SeqIO
 
 #created by Matej Medvecky
 
-#This script generates snp_file.txt file which is required parameter for makeVCtable.py
+#This script can be used to generate panSNPs.txt file which is a required parameter for makeVCtable.py
 #Fasta file should be your reference. File with SNP positions should contain one SNP position per line consisting of reference header and position of SNP delimited by tab. First base has position 1.
 #biopython is a dependency here. You may install it by command "pip install biopython" or "pip3 install biopython".
 

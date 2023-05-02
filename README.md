@@ -29,6 +29,7 @@ for filename in *bam; do bam-readcount -w 1 -b 20 -l panSNPs_intervals.txt -f /p
 ```
 
 \# generate variant call table (tab-delimited)\
+\# you may generate panSNP.txt file by script 'generate_SNPfile.py' - see commented lines in that script for input clarification\
 \# format of the table is explained below
 ```bash
 ./makeVCtable.py panSNPs.txt /path/to/dir/with/bam-readcount/files

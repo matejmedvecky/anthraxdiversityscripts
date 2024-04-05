@@ -9,7 +9,7 @@ import glob
 
 def extract_SNPs():
 	if len(sys.argv) != 2:
-		print 'USAGE: %s /path/to/dir/with/varscan/files' % sys.argv[0]
+		print('USAGE: %s /path/to/dir/with/varscan/files' % sys.argv[0])
 		return False
 
 	positionPattern = re.compile(r'(.+?)\t(\d+?)\t(.)\t.+')# reference contig, position, reference base
@@ -21,9 +21,10 @@ def extract_SNPs():
 			isInSNPs = False
 			if snpData:
 				for snp in SNPs:
-					if int(snpData[0][1]) == snp[1]:
-						isInSNPs = True
-						break
+					if snpData[0][0] == snp[0]:
+						if int(snpData[0][1]) == snp[1]:
+							isInSNPs = True
+							break
 				if not isInSNPs:
 					SNPs.append([snpData[0][0], int(snpData[0][1]), snpData[0][2]])
 		inFile.close()

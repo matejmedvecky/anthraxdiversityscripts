@@ -29,6 +29,7 @@ def extract_SNPs():
 					SNPs.append([snpData[0][0], int(snpData[0][1]), snpData[0][2]])
 		inFile.close()
 	SNPs.sort(key=lambda x: x[1], reverse=False)
+	SNPs.sort(key=lambda x: x[0], reverse=False)
 
 	outFile = open('panSNPs.txt', 'w')
 	for snp in SNPs:

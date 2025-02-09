@@ -60,7 +60,7 @@ def make_variant_calling_table():
                             print("ERROR: bam-readcount entry has wrong format!\nLine: %s\nExiting.." % line)
                             return False
                     if doesMatchPosition and not isInBrData:
-                        print("CAUTION: SNP with position %d was found in %s file only on different chromosome and therefore SNP was not called. Possible reference naming problem?" % (snp[0], filename))
+                        print("CAUTION: SNP with position %d was found in %s file only on different chromosome and therefore SNP was not called. Possible reference naming problem?" % (int(snp[0]), filename))
                     if not isInBrData:
                         snp[3].append([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
             except IOError:

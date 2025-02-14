@@ -31,6 +31,7 @@ def make_variant_calling_table():
         for filename in glob.glob(sys.argv[2] + '/*bam-readcount'):
             name = namePattern.findall(filename)
             if name:
+                print("Processing file %s." % name[0])
                 outFile.write("\t%s" % name[0])
             else:
                 print("ERROR: Could not extract name of the file %s. Exiting.." % filename)

@@ -8,6 +8,7 @@
 import sys
 import re
 import glob
+import os
 
 def make_variant_calling_table():
     if len(sys.argv) != 3:
@@ -39,6 +40,9 @@ def make_variant_calling_table():
             try:
                 f = open(filename, 'r')
                 for snp in snps:
+                    if os.path.getsize(filename) == 0:
+                        snp[3].append([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+                        continue
                     f.seek(0)
                     for line in f:
                         brData = brPattern.findall(line)
